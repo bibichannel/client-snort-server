@@ -19,5 +19,7 @@ RUN ln -s /usr/include/tirpc/rpcsvc/* /usr/include/rpcsvc
 RUN ln -s /usr/include/tirpc/netconfig.h /usr/include
 
 RUN cd snort-2.9.20 && ./configure --enable-sourcefire && make && make install
+RUN ln -s /usr/local/bin/snort /usr/sbin/snort
+RUN /sbin/ldconfig -v
 
 ENTRYPOINT ["bash","docker-entrypoint.sh"]
